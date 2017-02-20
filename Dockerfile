@@ -14,6 +14,9 @@ RUN apt-get install -y php5 php5-dev php5-cgi php5-cli php5-curl php5-mongo php5
 RUN systemctl disable apache2
 RUN curl -sS "https://getcomposer.org/installer" | php -- --install-dir=/usr/local/bin
 RUN mkdir -p /home/$username/.composer && chown $username:$username /home/$username/.composer
+RUN composer.phar create-project composer/satis:dev-master --keep-vcs --working-dir=/usr/local/lib/
+RUN chown -R $username:$username /usr/local/lib/satis/
+RUN ln -s /usr/local/lib/satis/bin/satis /usr/local/bin/satis
 COPY bootstrap.sh /
 RUN chmod +x /bootstrap.sh
 CMD ["/bootstrap.sh"]
