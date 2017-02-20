@@ -1,0 +1,11 @@
+FROM debian:jessie
+MAINTAINER Naoaki Obiki
+
+RUN apt-get update && apt-get install -y git
+
+#include "./include/git-daemon.docker"
+
+COPY bootstrap.sh /
+RUN chmod +x /bootstrap.sh
+
+CMD ["/bootstrap.sh"]
