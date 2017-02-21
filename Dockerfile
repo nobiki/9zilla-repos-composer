@@ -15,7 +15,7 @@ RUN systemctl disable apache2
 RUN curl -sS "https://getcomposer.org/installer" | php -- --install-dir=/usr/local/bin
 RUN mkdir -p /home/$username/.composer && chown $username:$username /home/$username/.composer
 RUN composer.phar create-project composer/satis:dev-master --keep-vcs --working-dir=/usr/local/lib/
-ADD settings/satis/satis.json /usr/local/lib/satis/
+ADD settings/satis/satis.json.org /usr/local/lib/satis/
 RUN chown -R $username:$username /usr/local/lib/satis/
 RUN ln -s /usr/local/lib/satis/bin/satis /usr/local/bin/satis
 RUN apt-get install -y nginx
