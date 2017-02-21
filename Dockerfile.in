@@ -1,16 +1,14 @@
 FROM debian:jessie
 MAINTAINER Naoaki Obiki
 
-RUN apt-get update && apt-get install -y git
+RUN apt-get update && apt-get install -y git supervisor php5
 
 #include "./include/git-daemon.docker"
-
-#include "./include/lamp-php.docker"
 
 #include "./include/composer.docker"
 #include "./include/satis.docker"
 
-#include "./include/apache2.docker"
+#include "./include/nginx.docker"
 
 COPY bootstrap.sh /
 RUN chmod +x /bootstrap.sh
