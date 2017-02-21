@@ -1,9 +1,11 @@
 FROM debian:jessie
 MAINTAINER Naoaki Obiki
 
-RUN apt-get update && apt-get install -y git supervisor php5
+RUN apt-get update && apt-get install -y git supervisor
 
 #include "./include/git-daemon.docker"
+
+#include "./include/apt-php.docker"
 
 #include "./include/composer.docker"
 #include "./include/satis.docker"
