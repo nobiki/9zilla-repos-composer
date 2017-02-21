@@ -6,8 +6,11 @@ RUN apt-get update && apt-get install -y git
 #include "./include/git-daemon.docker"
 
 #include "./include/lamp-php.docker"
+
 #include "./include/composer.docker"
 #include "./include/satis.docker"
+
+#include "./include/apache2.docker"
 
 COPY bootstrap.sh /
 RUN chmod +x /bootstrap.sh
