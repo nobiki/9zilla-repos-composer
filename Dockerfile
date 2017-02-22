@@ -1,6 +1,6 @@
 FROM debian:jessie
 MAINTAINER Naoaki Obiki
-RUN apt-get update && apt-get install -y git supervisor
+RUN apt-get update && apt-get install -y sudo git supervisor
 ARG username="git"
 RUN groupadd $username && useradd -g $username -d /home/$username $username
 RUN mkdir /home/$username

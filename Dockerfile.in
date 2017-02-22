@@ -1,7 +1,7 @@
 FROM debian:jessie
 MAINTAINER Naoaki Obiki
 
-RUN apt-get update && apt-get install -y git supervisor
+RUN apt-get update && apt-get install -y sudo git supervisor
 
 #include "./include/git-daemon.docker"
 
