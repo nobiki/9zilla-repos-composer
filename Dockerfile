@@ -18,6 +18,7 @@ RUN composer.phar create-project composer/satis:dev-master --keep-vcs --working-
 ADD settings/satis/satis.json.org /usr/local/lib/satis/
 RUN chown -R $username:$username /usr/local/lib/satis/
 RUN ln -s /usr/local/lib/satis/bin/satis /usr/local/bin/satis
+RUN mkdir -p /root/.composer && chmod 777 /root/.composer
 RUN apt-get install -y nginx
 RUN chmod 755 /var/log/nginx/
 ADD settings/nginx/nginx.conf /etc/nginx/
