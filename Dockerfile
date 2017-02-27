@@ -13,8 +13,8 @@ RUN chmod +x /git-daemon.sh
 RUN apt-get install -y php5 php5-dev php5-cgi php5-cli php5-curl php5-mongo php5-mysql php5-memcache php5-mcrypt mcrypt php5-readline php5-json php5-imagick imagemagick php5-oauth
 RUN systemctl disable apache2
 RUN curl -sS "https://getcomposer.org/installer" | php -- --install-dir=/usr/local/bin
-RUN mkdir -p /home/$username/.composer && chown $username:$username /home/$username/.composer
-ENV COMPOSER_HOME /home/$username
+RUN mkdir -p /home/$username/.composer && chown -R $username:$username /home/$username/.composer
+ENV COMPOSER_HOME /home/$username/.composer
 RUN composer.phar create-project composer/satis:dev-master --keep-vcs --working-dir=/usr/local/lib/
 ADD settings/satis/satis.json.org /usr/local/lib/satis/
 RUN chown -R $username:$username /usr/local/lib/satis/
