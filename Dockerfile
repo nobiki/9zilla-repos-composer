@@ -10,7 +10,7 @@ ADD settings/supervisor/conf.d/git-daemon.conf /git-daemon.conf.org
 RUN chown -R $username:$username /home/$username
 RUN echo "mkdir -p /repos/git && chown -R $username:$username /repos/git/" >> /git-daemon.sh
 RUN chmod +x /git-daemon.sh
-RUN apt-get install -y php php-all-dev php-cgi php-cli php-curl mcrypt imagemagick
+RUN apt-get install -y php php-all-dev php-cgi php-cli php-curl php-mbstring mcrypt imagemagick
 RUN curl -sS "https://getcomposer.org/installer" | php -- --install-dir=/usr/local/bin
 RUN mkdir -p /home/$username/.composer && chown -R $username:$username /home/$username/.composer
 ENV COMPOSER_HOME /home/$username/.composer
